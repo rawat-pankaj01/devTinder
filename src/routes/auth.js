@@ -8,8 +8,7 @@ const { validateSignUpData } = require('../utils/validaton')
 
 //Sign up
 authRouter.post("/signup", async (req, res) => {
-    try {
-        console.log(req.body);
+    try {       
         // validation of data
         validateSignUpData(req);
         const { firstName, lastName, emailId, password } = req.body;
