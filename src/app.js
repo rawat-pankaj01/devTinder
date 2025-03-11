@@ -1,9 +1,12 @@
+
+
 const express = require('express');
 const connectDB = require('./config/database');
 const app = express();
 const User = require('./models/user');
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
+require("dotenv").config();
 
 
 app.use(cors({
@@ -87,7 +90,7 @@ app.patch("/updateUser/:userId", async (req, res) => {
 
 connectDB().then(() => {
     console.log("Database connection established");
-    app.listen(7777, () => {
+    app.listen(process.env.PORT, () => {
         console.log("Server is successfylly listening on port 7777");
     })
 }).catch(err => {
